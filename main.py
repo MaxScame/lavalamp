@@ -66,7 +66,7 @@ def main():
     orbs = [Orb(x=random.randint(0, term_x),
                 y=random.randint(0, term_y),
                 dx=-1 if random.randint(0, term_x) % 2 == 0 else 1,
-                dy=-1 if random.randint(0, term_y) % 2 == 0 else 1,
+                dy=-1 if random.randint(0, term_y) % 8 == 0 else 1,
                 ) for i in range(orb_count)]
 
     while True:
@@ -88,13 +88,13 @@ def main():
                 # calculate the two halfs of the block at the same time
                 sum = [0.0, 0.0]
 
-                for j2 in range(2):
+                for y_double in range(2):
                     for orb in orbs:
-                        y = y_index * 2 + j2
+                        y = y_index * 2 + y_double
                         try:
-                            sum[j2] += 1.0 / ((x_index - orb.x) * (x_index - orb.x) + (y - orb.y) * (y - orb.y))
+                            sum[y_double] += 1.0 / ((x_index - orb.x)**2 + (y - orb.y)**2)
                         except ZeroDivisionError:
-                            sum[j2] += 1
+                            sum[y_double] += 1
                 if sum[0] > radius:
                     if sum[1] > radius:
                         screen[y_index][x_index] = "█"

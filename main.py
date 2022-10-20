@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from ntpath import join
 
 import os
 import random
@@ -82,7 +81,6 @@ def main():
 
             orb.x += orb.dx
             orb.y += orb.dy
-        # print(f'{orbs[0]=}')
 
         # render
         for x_index in range(term_x):

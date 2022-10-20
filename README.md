@@ -1,2 +1,2 @@
-# lavalamp
+# lava lamp
  

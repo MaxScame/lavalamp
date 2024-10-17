@@ -10,7 +10,7 @@
 python3 main.py
 ```
 
-Enjoy
+Enjoy!
 
 ---
 
